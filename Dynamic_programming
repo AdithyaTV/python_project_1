@@ -1,0 +1,23 @@
+a = [None] * 20 #set array size or initialize the array size
+
+
+a[10] = 20
+# print(a)
+
+
+def grid(m,n,memo[m][n]):
+    if memo[m][n] != None:
+        return memo[m][n]
+    if m==1 and n== 1:
+        return 1
+    if m == 0 or n == 0:
+        return 0
+    r = grid(m-1,n) + grid(m,n-1)
+    memo[m][n] = r
+    return r
+import numpy
+memo = numpy.zeros((3,3))
+
+memo[1][2] = 21
+print(memo)
+print(grid(3,3,memo[m][n]))
