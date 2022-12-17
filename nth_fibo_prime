@@ -1,0 +1,52 @@
+# to find nth fibonacci number
+def fibbo(n):
+    n1, n2 = 1, 1
+    count = 0
+    if n <= 0:
+        print("Please enter a positive integer")
+    elif n == 1:
+        # print(n1)
+        return n1
+    else:
+
+        while count < n:
+            nth = n1 + n2
+            n1 = n2
+            n2 = nth
+            count += 1
+    return nth
+
+# to find nth prime number
+def prime(n):
+    count = 0
+    for i in range(2, 99999):
+        flag = 0
+        for j in range(2, i):
+            if (i % j == 0):
+                flag = 1
+                break
+        if flag == 0:
+            count += 1
+            if count == n:
+                return(i)
+
+
+
+# main
+p = []
+n = 17
+for i in range(1,n+1):
+    p.append(prime(i))
+print(p)
+f = []
+f.append(1)
+for i in range(1,n):
+    f.append(fibbo(i))
+print(f)
+
+s = []
+for i in range(len(f)-1):
+    s.append(f[i])
+    s.append(p[i])
+print(s)
+print(s[n-1])
