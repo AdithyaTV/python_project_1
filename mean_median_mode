@@ -1,0 +1,57 @@
+"""
+The following table lists the marks of students. Find the average, median, mode, standard deviation, variance, and Interquartile range mark of the class.
+
+Name	Marks
+A	90
+B	86
+C	70
+D	95
+E	95
+F	95
+G	95
+"""
+
+
+from scipy import stats
+import numpy as np
+import statistics
+data ={"A": 90,"B": 86,"C":70,"D":95,"E":95,"F":95,"G":95}
+values = list(data.values())
+values1 = []
+print("Mean")
+print(np.mean(values))
+values1.append(np.mean(values))
+print("Median")
+print(np.median(values))
+values1.append(np.median(values))
+print("Mode")
+print(statistics.mode(values))
+values1.append(statistics.mode(values))
+print("Standard Deviation")
+print(np.std(values))
+values1.append(np.std(values))
+print("Variance")
+print(np.var(values))
+values1.append(np.var(values))
+print("range IQR")
+print(stats.iqr(values))
+values1.append(stats.iqr(values))
+
+
+import matplotlib.pyplot as plt
+
+# plotting using plt.pyplot()
+plt.plot(values, 'ro')
+plt.plot(values1, 'go')
+plt.plot(stats.iqr(values), 'yo')
+
+# axis labeling
+plt.xlabel('numbers')
+plt.ylabel('values')
+
+# figure name
+plt.title('Dot Plot : Red Dots')
+plt.ylim(0,200)
+plt.xlim(-2,10)
+
+plt.show()
