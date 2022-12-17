@@ -1,0 +1,50 @@
+def binary_s1(arr,start,end,search):
+    if end >= start:
+        mid = start + (end - start) // 2
+        if arr[mid] == search:
+            return  mid
+        elif arr[mid] < search:
+            return binary_s1(arr,mid+1,end,search)
+        elif arr[mid] > search:
+            return binary_s1(arr,start,mid-1,search)
+    return -1
+print("started assigning values in generator expression 10^9")
+arr = [x for x in range(1000000)]
+# print(len(arr)-1)
+print("started searching algorithms")
+import datetime
+s = datetime.datetime.now()
+search = 50000
+print("binary search recursive:",binary_s1(arr,0,len(arr)-1,search))
+e = datetime.datetime.now()
+print("binary search recursive:",(e-s).total_seconds())
+
+
+# arr = [1,2,3,5,7,9]
+# search = 7
+end= len(arr)-1
+start = 0
+s = datetime.datetime.now()
+while end >= start:
+    mid = start + (end - start)//2
+    if arr[mid] == search:
+        print("iterative binary search:",mid)
+        break
+    elif search > arr[mid]:
+        start = mid + 1
+    elif search < arr[mid]:
+        end = mid - 1
+else:
+    print("not found")
+e = datetime.datetime.now()
+print("for iterative binary search",(e-s).total_seconds())
+
+s = datetime.datetime.now()
+end= len(arr)-1
+start = 0
+for i in arr:
+    if i == arr[-1]:
+        print("linear search:",i)
+        break
+e = datetime.datetime.now()
+print("for linear search",(e-s).total_seconds())
