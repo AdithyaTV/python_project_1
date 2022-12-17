@@ -1,0 +1,43 @@
+# import datetime
+# # alphabets = [str(x)for x in range(10000000)]
+# a = datetime.datetime.now() # store initial time
+# for item in alphabets:
+#     len(item)
+# b = datetime.datetime.now() # store final time
+# print ((b-a).total_seconds()) # results
+# a = datetime.datetime.now()
+# fn = len                    # function stored locally
+# for item in alphabets:
+#     fn(item)
+# b = datetime.datetime.now()
+# print ((b-a).total_seconds())
+import datetime
+import collections
+a1 = datetime.datetime.now()
+de = collections.deque(str(x)for x in range(1000000))
+a2 = datetime.datetime.now()
+a = [str(x)for x in range(1000000)]
+a3 = datetime.datetime.now()
+al = []
+for i in a:
+    al.extend(i)
+a4 = datetime.datetime.now()
+print("for list forming")
+print((a2 - a1).total_seconds(),"=> deque ")
+print((a3 - a2).total_seconds(),"=> generator expression")
+print((a4 - a3).total_seconds(),"=> list append")
+
+a2 = datetime.datetime.now()
+##+=======================wrong method=======================
+a = [x for x in range(10000)].sort()
+print(a)
+a3 = datetime.datetime.now()
+##==============correct method===============================
+b = [int(x/2) for x in range(1,10000,1) if x % 5 == 0 ]
+b.sort()
+print(b)
+a4 = datetime.datetime.now()
+print("for list rotate and sorting")
+
+print((a3 - a2).total_seconds(),"=> list sorting and assigning in same")
+print((a4 - a3).total_seconds(),"=> list sorting and assigning in different")
