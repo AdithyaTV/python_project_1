@@ -1,0 +1,39 @@
+# Li = list(map (int, input().split("\0")))
+# print(Li)
+## ================================Transpose a matrix:
+def transpose():
+    mat = [[0,1],[1,2],[2,3]]
+    print(mat)
+    for i in mat:
+        print(i)
+
+    for i in zip(* mat):
+        print(i)
+##================================Reverse String or list:
+def reverser():
+    A = ["M","A","N"]
+    B = "DAN"
+    ##==================print reverse string of A and B
+    print(A[::-1],"and",B[::-1])
+    ##==================permanently reverse List
+    A.reverse()
+
+    print(A)
+# reverser()
+##===============================Generators inside functions
+def Gen():
+    A = [1,2,3,4,5,6,7,8,9,10]
+    ##======================Generators return one element of a list at a time
+    sumer = sum(x for x in A)
+    print(sumer)
+
+# Gen()
+##==================================Factors of a number:
+def factorizer():
+    num = 256
+    factor_array = []
+    ##======================factorizer using genorators
+    factor_array = [i for i in range(1,num+1) if num % i== 0 ]
+    sum_of_factorizers = sum([i for i in range(1,num+1) if num % i== 0 ])
+    print(factor_array,sum_of_factorizers)
+factorizer()
